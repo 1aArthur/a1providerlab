@@ -13,7 +13,7 @@
 const TOKENROUTER_BASE_URL = "https://api.tokenrouter.com/v1";
 const RATE_LIMIT_MAX = 100;        // requests por minuto por IP
 const RATE_LIMIT_WINDOW = 60;      // segundos
-const CORS_ORIGIN = "*";           // Altere para seu domínio em produção
+const CORS_ORIGIN = "https://api.a1providerlab.com";
 
 // Modelos disponíveis no Cloudflare Workers AI
 const CF_AI_MODELS = [

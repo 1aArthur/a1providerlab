@@ -1,4 +1,4 @@
-name = "a1providerlab-proxy"
+name = "tokenrouter-proxy"
 main = "worker.js"
 compatibility_date = "2026-08-02"
 compatibility_flags = ["nodejs_compat"]
