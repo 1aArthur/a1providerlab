@@ -1,0 +1,3 @@
+# Copie este arquivo para .dev.vars e preencha os valores
+TOKENROUTER_API_KEY=seu_tokenrouter_key_aqui
+CLOUDFLARE_AUTH_TOKEN=seu_cfat_token_aqui

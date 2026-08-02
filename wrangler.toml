@@ -1,0 +1,21 @@
+name = "a1providerlab-proxy"
+main = "worker.js"
+compatibility_date = "2026-08-02"
+compatibility_flags = ["nodejs_compat"]
+
+# Custom domain configuration
+routes = [
+  { pattern = "api.a1providerlab.com", custom_domain = true }
+]
+
+# Cloudflare Workers AI binding
+[[ai]]
+binding = "AI"
+
+# Variáveis de ambiente (não sensíveis)
+[vars]
+ENVIRONMENT = "production"
+
+# Segredos (use: wrangler secret put <NOME>)
+# TOKENROUTER_API_KEY
+# CLOUDFLARE_AUTH_TOKEN
