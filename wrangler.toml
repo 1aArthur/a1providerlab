@@ -9,7 +9,7 @@ routes = [
 ]
 
 # Cloudflare Workers AI binding
-[[ai]]
+[ai]
 binding = "AI"
 
 # Variáveis públicas
