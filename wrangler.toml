@@ -3,7 +3,7 @@ main = "worker.js"
 compatibility_date = "2026-08-02"
 compatibility_flags = ["nodejs_compat"]
 
-# Custom domain configuration
+# Domínio customizado (sua Zone ID: 2229b68f424b214ddcc9c73895839a9c)
 routes = [
   { pattern = "api.a1providerlab.com", custom_domain = true }
 ]
@@ -12,10 +12,7 @@ routes = [
 [[ai]]
 binding = "AI"
 
-# Variáveis de ambiente (não sensíveis)
+# Variáveis públicas
 [vars]
 ENVIRONMENT = "production"
-
-# Segredos (use: wrangler secret put <NOME>)
-# TOKENROUTER_API_KEY
-# CLOUDFLARE_AUTH_TOKEN
+AI_MODEL = "moonshotai/kimi-k3-free"
