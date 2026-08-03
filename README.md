@@ -2,31 +2,26 @@
 
 Este repositório contém um Cloudflare Worker otimizado que atua como um proxy dedicado para o modelo **Kimi 3** (`moonshotai/kimi-k3-free`) via TokenRouter.
 
-## Configuração
+## 🚀 Status de Produção
+O Worker já foi implantado e está funcional em:
+`https://tokenrouter-proxy.arthurlorenco78.workers.dev/v1/chat/completions`
 
-### 1. Segredos no GitHub (Secrets)
-Adicione em **Settings > Secrets and variables > Actions**:
-*   `CLOUDFLARE_API_TOKEN`: Token da Cloudflare com permissão de edição de Workers.
+## Configuração de Segurança
+*   **Modelo Único**: Apenas requisições para `moonshotai/kimi-k3-free` são processadas.
+*   **Autenticação**: Requer o Header `Authorization: Bearer <SUA_CHAVE_CLOUDFLARE>`.
 
-### 2. Segredos no Cloudflare (Worker Secrets)
-Configure as variáveis de ambiente no painel da Cloudflare ou via CLI:
-*   `TOKENROUTER_API_KEY`: Sua chave da TokenRouter.
-*   `CLOUDFLARE_AUTH_TOKEN`: Sua chave customizada da Cloudflare (usada no Header Authorization).
+## Como configurar o seu Domínio Customizado
+Para usar `api.a1providerlab.com`:
+1.  Acesse o painel da Cloudflare.
+2.  Vá em **Workers & Pages** > selecione `tokenrouter-proxy`.
+3.  Vá na aba **Settings** > **Domains & Routes**.
+4.  Clique em **Add Custom Domain** e digite `api.a1providerlab.com`.
+5.  A Cloudflare cuidará da configuração do DNS e do certificado SSL.
 
+## Exemplo de Teste (CURL)
 ```bash
-wrangler secret put TOKENROUTER_API_KEY
-wrangler secret put CLOUDFLARE_AUTH_TOKEN
-```
-
-## Restrições de Segurança
-*   **Modelo Único**: Apenas requisições para `moonshotai/kimi-k3-free` são processadas. Outros modelos retornarão erro `403 Forbidden`.
-*   **Método Único**: Apenas `POST` para `/v1/chat/completions` é suportado.
-*   **Autenticação Estrita**: O Header `Authorization` deve ser exatamente `Bearer <CLOUDFLARE_AUTH_TOKEN>`.
-
-## Exemplo de Uso
-```bash
-curl https://api.a1providerlab.com/v1/chat/completions \
-  -H "Authorization: Bearer <SUA_CHAVE_CUSTOM_CLOUDFLARE>" \
+curl https://tokenrouter-proxy.arthurlorenco78.workers.dev/v1/chat/completions \
+  -H "Authorization: Bearer <SUA_CHAVE_CLOUDFLARE>" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "moonshotai/kimi-k3-free",

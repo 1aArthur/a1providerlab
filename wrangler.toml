@@ -2,7 +2,4 @@ name = "tokenrouter-proxy"
 main = "worker.js"
 compatibility_date = "2024-08-02"
 account_id = "17434f5a2db35dcf22818e97c2397af0"
-
-[[routes]]
-pattern = "api.a1providerlab.com/*"
-custom_domain = true
+workers_dev = true
