@@ -1,9 +1,7 @@
 name = "tokenrouter-proxy"
 main = "worker.js"
 compatibility_date = "2024-08-02"
-
-# Use `wrangler secret put TOKENROUTER_API_KEY` and `wrangler secret put CLOUDFLARE_AUTH_TOKEN`
-# to set your keys securely in Cloudflare.
+account_id = "17434f5a2db35dcf22818e97c2397af0"
 
 [[routes]]
 pattern = "api.a1providerlab.com/*"
